@@ -18,13 +18,10 @@ var features_core_members_coords_extra_1 = format_core_members_coords_extra_1.re
 var jsonSource_core_members_coords_extra_1 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_core_members_coords_extra_1.addFeatures(features_core_members_coords_extra_1);cluster_core_members_coords_extra_1 = new ol.source.Cluster({
-  distance: 10,
-  source: jsonSource_core_members_coords_extra_1
-});
+jsonSource_core_members_coords_extra_1.addFeatures(features_core_members_coords_extra_1);
 var lyr_core_members_coords_extra_1 = new ol.layer.Vector({
                 declutter: true,
-                source:cluster_core_members_coords_extra_1, 
+                source:jsonSource_core_members_coords_extra_1, 
                 style: style_core_members_coords_extra_1,
                 interactive: true,
                 title: '<img src="styles/legend/core_members_coords_extra_1.png" /> core_members_coords_extra'

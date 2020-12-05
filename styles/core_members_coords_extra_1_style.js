@@ -8,31 +8,21 @@ var style_core_members_coords_extra_1 = function(feature, resolution){
     };
     var value = ""
     var labelText = "";
-    var clusteredFeatures = feature.get("features");
+    size = 0;
     var labelFont = "10.4px \'Ubuntu\', sans-serif";
-    var labelFill = "#0077ff";
+    var labelFill = "#000000";
     var bufferColor = "";
     var bufferWidth = 0;
-    size = clusteredFeatures.length;
-    var textAlign = "center";
-    var offsetX = 0;
-    var offsetY = 0;
-    if (size == 1) {
-        textAlign = "left"
-        offsetX = 8
-        offsetY = 3
-        var feature = clusteredFeatures[0];
-        if (feature.get("Name") !== null) {
-            labelText = String(feature.get("Name"));
-        }
-        key = value + "_" + labelText
-    } else {
-        labelText = size.toString()
-        size = 2*(Math.log(size)/ Math.log(2))
+    var textAlign = "left";
+    var offsetX = 8;
+    var offsetY = 3;
+    var placement = 'point';
+    if (feature.get("Name") !== null) {
+        labelText = String(feature.get("Name"));
     }
     var style = [ new ol.style.Style({
         image: new ol.style.Circle({radius: 4.0 + size,
-            stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}), fill: new ol.style.Fill({color: 'rgba(231,113,72,1.0)'})}),
+            stroke: new ol.style.Stroke({color: 'rgba(35,35,35,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}), fill: new ol.style.Fill({color: 'rgba(196,60,57,1.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)

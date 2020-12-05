@@ -63,7 +63,20 @@ var map = new ol.Map({
 });
 
 
-map.getView().fit([-12662193.753520, 3734516.125809, -9283442.763281, 6392173.009091], map.getSize());
+    var searchLayer = new SearchLayer({
+      layer: lyr_core_members_coords_extra_1,
+      colName: 'Name',
+      zoom: 10,
+      collapsed: true,
+      map: map
+    });
+
+    map.addControl(searchLayer);
+    document.getElementsByClassName('search-layer')[0]
+    .getElementsByTagName('button')[0].className +=
+    ' fa fa-binoculars';
+    
+map.getView().fit([-9232420.088655, -10546561.573388, 9843940.241155, 4458515.890135], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -104,7 +117,7 @@ var featureOverlay = new ol.layer.Vector({
 });
 
 var doHighlight = true;
-var doHover = false;
+var doHover = true;
 
 var highlight;
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
